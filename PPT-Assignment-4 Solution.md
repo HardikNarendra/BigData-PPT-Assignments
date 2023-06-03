@@ -1,4 +1,6 @@
-Assignment Questions 4
+Assignment Questions 4<br>
+<br>
+<br>
 💡 Question 1 Given three integer arrays arr1, arr2 and arr3 sorted in strictly increasing order, return a sorted array of only the integers that appeared in all three arrays.<br>
 Example 1:<br>
 Input: arr1 = [1,2,3,4,5], arr2 = [1,2,5,7,9], arr3 = [1,3,4,5,8]<br>
@@ -7,9 +9,25 @@ Explanation: Only 1 and 5 appeared in the three arrays.<br>
 
 Solution_code:<br>
 ```
+#question-1
+#using set intersection
+def find_com(arr1,arr2,arr3):
+    set1=set(arr1)
+    set2=set(arr2)
+    set3=set(arr3)
+    return list(set1 & set2 & set3)
+
+#driver code
+arr1 = [1,2,3,4,5]
+arr2 = [1,2,5,7,9]
+arr3 = [1,3,4,5,8]
+print(find_com(arr1,arr2,arr3))
+
 ```
 Output:<br>
 ```
+PS C:\Users\Dell\OneDrive\Desktop\PPT program\lecture-4> & C:/Users/Dell/AppData/Local/Programs/Python/Python311/python.exe "c:/Users/Dell/OneDrive/Desktop/PPT program/lecture-4/Assignment/solution.py"
+[1, 5]
 ```
 <br>
 <br>
@@ -26,9 +44,25 @@ For nums2, nums2[0] = 2 is present at index 1 of nums1, whereas nums2[1] = 4 and
 
 Solution_code:<br>
 ```
+#question-2
+#we can use set difference
+def set_diff(nums1,nums2,answer):
+    
+    answer.append(list(nums1-nums2))
+    answer.append(list(nums2-nums1))
+    
+    return answer
+    
+#driver code
+nums1 = [1,2,3]
+nums2 = [2,4,6]
+answer=[]
+print(set_diff(set(nums1),set(nums2),answer))
 ```
 Output:<br>
 ```
+PS C:\Users\Dell\OneDrive\Desktop\PPT program\lecture-4> & C:/Users/Dell/AppData/Local/Programs/Python/Python311/python.exe "c:/Users/Dell/OneDrive/Desktop/PPT program/lecture-4/Assignment/solution.py"
+[[1, 3], [4, 6]]
 ```
 <br>
 <br>
@@ -37,13 +71,28 @@ The transpose of a matrix is the matrix flipped over its main diagonal, switchin
 Example 1:<br>
 Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]<br>
 Output: [[1,4,7],[2,5,8],[3,6,9]]<br>
+
 <img src="https://github.com/HardikNarendra/BigData-PPT-Assignments/blob/main/images/ASSIGN-4-Q-3.png" alt="mypic" style="width:500px; height:200px"/><br>
 
 Solution_code:<br>
 ```
+#question-3
+#transpose of a matrix
+def transpose(matrix,m,n):
+    ans = [[None] * m for _ in range(n)]
+    for i in range(m):
+        for j in range(n):
+            ans[i][j]=matrix[j][i]
+    return ans
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+n=len(matrix[0])
+m=len(matrix)
+print(transpose(matrix,m,n))
 ```
 Output:<br>
 ```
+PS C:\Users\Dell\OneDrive\Desktop\PPT program\lecture-4> & C:/Users/Dell/AppData/Local/Programs/Python/Python311/python.exe "c:/Users/Dell/OneDrive/Desktop/PPT program/lecture-4/Assignment/solution.py"
+[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
 ```
 <br>
 <br>
@@ -59,9 +108,21 @@ So the maximum possible sum is 4.<br>
 
 Solution_code:<br>
 ```
+#question-4
+def arrayPairSum(nums):
+        nums.sort()
+        result = 0
+        numsLen = len(nums)
+        for i in range(0, numsLen - 1, 2):
+            result += nums[i]
+        return result
+nums = [1,4,3,2]
+print(arrayPairSum(nums))
 ```
 Output:<br>
 ```
+PS C:\Users\Dell\OneDrive\Desktop\PPT program\lecture-4> & C:/Users/Dell/AppData/Local/Programs/Python/Python311/python.exe "c:/Users/Dell/OneDrive/Desktop/PPT program/lecture-4/Assignment/solution.py"
+4
 ```
 <br>
 <br>
@@ -76,9 +137,30 @@ Explanation: Because the 3rd row is incomplete, we return 2.<br>
 
 Solution_code:<br>
 ```
+#question-5
+def arrangeCoins(n):
+        completeStairs = 0
+
+        start = 1
+        end = (n + 1) // 2
+        
+        while start <= end:
+            mid = start + (end - start) // 2
+			# How many coins required to completely fill 'mid' rows?
+			# we can use Gauss Summation to find that in O(1) time
+            if (mid * ( mid + 1)) // 2 <= n:
+                completeStairs = mid
+                start = mid + 1
+            else:
+                end = mid - 1
+        return completeStairs
+n=5
+print(arrangeCoins(n))
 ```
 Output:<br>
 ```
+PS C:\Users\Dell\OneDrive\Desktop\PPT program\lecture-4> & C:/Users/Dell/AppData/Local/Programs/Python/Python311/python.exe "c:/Users/Dell/OneDrive/Desktop/PPT program/lecture-4/Assignment/solution.py"
+2
 ```
 <br>
 <br>
@@ -90,9 +172,17 @@ Explanation: After squaring, the array becomes [16,1,0,9,100]. After sorting, it
 
 Solution_code:<br>
 ```
+#question-6
+nums = [-4,-1,0,3,10]
+for i in range(len(nums)):
+    nums[i]=nums[i]**2
+nums.sort()
+print(nums)
 ```
 Output:<br>
 ```
+PS C:\Users\Dell\OneDrive\Desktop\PPT program\lecture-4> & C:/Users/Dell/AppData/Local/Programs/Python/Python311/python.exe "c:/Users/Dell/OneDrive/Desktop/PPT program/lecture-4/Assignment/solution.py"
+[0, 1, 9, 16, 100]
 ```
 <br>
 <br>
@@ -100,16 +190,29 @@ Output:<br>
 Count and return the number of maximum integers in the matrix after performing all the operations<br>
 Example 1:<br>
 <img src="https://github.com/HardikNarendra/BigData-PPT-Assignments/blob/main/images/ASSIGN-4-Q-7.jpg" alt="mypic" style="width:700px; height:200px"/><br>
-
 Input: m = 3, n = 3, ops = [[2,2],[3,3]]<br>
 Output: 4<br>
 Explanation: The maximum integer in M is 2, and there are four of it in M. So return 4.<br>
 
 Solution_code:<br>
 ```
+#question-7
+def maxCount( m, n, ops):
+        for r,c in ops:
+            # expand and shrink the matrix size (bottom-right boundry of matrix) based on the current operation
+            m = min(m,r)
+            n = min(c,n)
+        # total number of elements will be multiplication of bottom and right boundry asssming left and top boundry is 0,0
+        return m*n
+m=3
+n=3
+ops=[[2,2],[3,3]]
+print(maxCount(m,n,ops))
 ```
 Output:<br>
 ```
+PS C:\Users\Dell\OneDrive\Desktop\PPT program\lecture-4> & C:/Users/Dell/AppData/Local/Programs/Python/Python311/python.exe "c:/Users/Dell/OneDrive/Desktop/PPT program/lecture-4/Assignment/solution.py"
+4
 ```
 <br>
 <br>
@@ -123,9 +226,24 @@ Explanation: Since x1=2, x2=5, x3=1, y1=3, y2=4, y3=7 then the answer is [2,3,5,
 
 Solution_code:<br>
 ```
+#question-8
+def shuffle(nums, n):
+    lst = []
+    for i in range(n):
+        lst.append(nums[i])
+        lst.append(nums[n+i])
+    return lst
+nums = [2,5,1,3,4,7]
+n = 3
+print(shuffle(nums,n))
 ```
 Output:<br>
 ```
+PS C:\Users\Dell\OneDrive\Desktop\PPT program\lecture-4> & C:/Users/Dell/AppData/Local/Programs/Python/Python311/python.exe "c:/Users/Dell/OneDrive/Desktop/PPT program/lecture-4/Assignment/solution.py"
+[2, 3, 5, 4, 1, 7]
 ```
+
+
+
 
 
