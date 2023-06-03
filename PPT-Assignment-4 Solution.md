@@ -37,8 +37,7 @@ The transpose of a matrix is the matrix flipped over its main diagonal, switchin
 Example 1:<br>
 Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]<br>
 Output: [[1,4,7],[2,5,8],[3,6,9]]<br>
-
-![alt text](https://github.com/HardikNarendra/BigData-PPT-Assignments/blob/main/images/ASSIGN-4-Q-3.png)
+<img src="https://github.com/HardikNarendra/BigData-PPT-Assignments/blob/main/images/ASSIGN-4-Q-3.png" alt="mypic" style="width:500px; height:200px"/><br>
 
 Solution_code:<br>
 ```
@@ -70,7 +69,7 @@ Output:<br>
 💡 Question 5 You have n coins and you want to build a staircase with these coins. The staircase consists of k rows where the ith  row has exactly i coins. The last row of the staircase may be incomplete.<br>
 Given the integer n, return the number of complete rows of the staircase you will build.<br>
 Example 1:<br>
- ![alt text](https://github.com/HardikNarendra/BigData-PPT-Assignments/blob/main/images/ASSIGN-4-Q-5.jpg)
+<img src="https://github.com/HardikNarendra/BigData-PPT-Assignments/blob/main/images/ASSIGN-4-Q-5.jpg" alt="mypic" style="width:200px; height:200px"/><br>
 Input: n = 5<br>
 Output: 2<br>
 Explanation: Because the 3rd row is incomplete, we return 2.<br>
@@ -100,7 +99,8 @@ Output:<br>
 💡 Question 7 You are given an m x n matrix M initialized with all 0's and an array of operations ops, where ops[i] = [ai, bi] means M[x][y] should be incremented by one for all 0 <= x < ai and 0 <= y < bi.<br>
 Count and return the number of maximum integers in the matrix after performing all the operations<br>
 Example 1:<br>
- ![alt text](https://github.com/HardikNarendra/BigData-PPT-Assignments/blob/main/images/ASSIGN-4-Q-7.jpg)
+<img src="https://github.com/HardikNarendra/BigData-PPT-Assignments/blob/main/images/ASSIGN-4-Q-7.jpg" alt="mypic" style="width:700px; height:200px"/><br>
+
 Input: m = 3, n = 3, ops = [[2,2],[3,3]]<br>
 Output: 4<br>
 Explanation: The maximum integer in M is 2, and there are four of it in M. So return 4.<br>
